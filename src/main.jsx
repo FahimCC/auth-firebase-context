@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import About from './Components/About';
 import ErrorPage from './Components/ErrorPage';
 import Home from './Components/Home';
 import Login from './Components/Login';
-import About from './Components/About';
 import Register from './Components/Register';
 import './index.css';
 import Main from './Layout/Main';
+import AuthProviders from './Providers/AuthProviders';
 
 const router = createBrowserRouter([
 	{
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
 			},
 			{
 				path: '/about',
-				element: <About/>
+				element: <About />,
 			},
 			{
 				path: '/login',
@@ -37,6 +38,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 	<React.StrictMode>
-		<RouterProvider router={router} />
+		<AuthProviders>
+			<RouterProvider router={router} />
+		</AuthProviders>
 	</React.StrictMode>
 );

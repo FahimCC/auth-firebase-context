@@ -1,8 +1,13 @@
 import Lottie from 'lottie-react';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../Providers/AuthProviders';
 import register from '../assets/register.json';
+
 const Register = () => {
+	const { user, signUp } = useContext(AuthContext);
+	console.log(user);
+
 	const handleRegister = event => {
 		event.preventDefault();
 		const form = event.target;
@@ -10,7 +15,16 @@ const Register = () => {
 		const email = form.email.value;
 		const password = form.password.value;
 		console.log(name, email, password);
-		form.reset();
+
+		signUp(email, password)
+			.then(result => {
+				const loggedUser = result.user;
+				console.log(loggedUser);
+				form.reset();
+			})
+			.catch(err => {
+				console.log(err);
+			});
 	};
 	return (
 		<>

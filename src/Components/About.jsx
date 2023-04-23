@@ -1,9 +1,13 @@
+import Lottie from 'lottie-react';
 import React from 'react';
+import about from '../assets/about.json';
 
 const About = () => {
 	return (
-		<div>
-			<h1>About Us page</h1>
+		<div className='min-h-[calc(100vh-66px)]'>
+			<div className='h-full w-full'>
+				<Lottie animationData={about} loop={true} />
+			</div>
 		</div>
 	);
 };

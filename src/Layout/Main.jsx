@@ -4,9 +4,11 @@ import Header from '../Components/Header';
 
 const Main = () => {
 	return (
-		<div className='my-container'>
+		<div>
 			<Header />
-			<Outlet />
+			<div className='min-h-[calc(100vh-66px)]'>
+				<Outlet />
+			</div>
 		</div>
 	);
 };

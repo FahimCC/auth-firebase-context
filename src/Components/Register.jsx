@@ -5,9 +5,7 @@ import { AuthContext } from '../Providers/AuthProviders';
 import register from '../assets/register.json';
 
 const Register = () => {
-	const { user, signUp } = useContext(AuthContext);
-	console.log(user);
-
+	const {signUp } = useContext(AuthContext);
 	const handleRegister = event => {
 		event.preventDefault();
 		const form = event.target;
